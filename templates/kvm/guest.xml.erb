@@ -24,7 +24,7 @@
   <on_crash>restart</on_crash>
   <devices>
     <%- if volume -%>
-    <disk type='file' device='disk'>
+    <disk type='file' device='disk' cache='none' io='threads'>
       <driver name='qemu' type='raw'/>
       <source file='<%= volume.path %>'/>
       <target dev='vda' bus='virtio'/>
@@ -46,7 +46,7 @@
       <target port='0'/>
     </console>
     <input type='mouse' bus='ps2'/>
-    <graphics type='vnc' port='-1' autoport='yes'/>
+    <graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'/>
     <video>
       <model type='cirrus' vram='9216' heads='1'/>
     </video>
