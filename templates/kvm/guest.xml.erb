@@ -24,8 +24,8 @@
   <on_crash>restart</on_crash>
   <devices>
     <%- if volume -%>
-    <disk type='file' device='disk' cache='none' io='threads'>
-      <driver name='qemu' type='raw'/>
+    <disk type='file' device='disk' >
+      <driver name='qemu' type='raw' cache='none' io='threads' />
       <source file='<%= volume.path %>'/>
       <target dev='vda' bus='virtio'/>
     </disk>
